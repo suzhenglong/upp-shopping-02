@@ -33,7 +33,7 @@
         <mybatis-spring-boot>1.3.2</mybatis-spring-boot>
         <commons-codec>1.6</commons-codec>
         <dom4j.version>1.6.1</dom4j.version>
-        <alipay-sdk.version>1.0.0</alipay-sdk.version>
+        <alipay-sdk.version>1.0.1</alipay-sdk.version>
     </properties>
 
     <dependencyManagement>
