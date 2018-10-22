@@ -1,0 +1,59 @@
+server:
+  port: 8762
+#  context-path: /member
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: upp-shopping-member
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.shopping.api.member.entities    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+
+logging:
+  level:
+    com.shopping.member.mapper: debug
+
+
+spring:
+  application:
+    name: upp-shopping-member
+  redis:
+    host: 192.168.121.181
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://192.168.121.181:3309/upp_member      # 数据库名称
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+  ##activemq连接信息
+  activemq:
+    broker-url: tcp://192.168.121.181:61616
+    user: admin
+    password: admin
+    in-memory: true
+    pool:
+      enabled: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
+
+##队列
+messages:
+  queue: mail_queue
+
+info:
+  app.name: @project.artifactId@
+  company.name: www.shopping.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@

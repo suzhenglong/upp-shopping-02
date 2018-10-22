@@ -1,0 +1,31 @@
+server:
+  port: 8764
+#  context-path: /mobile
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: upp-shopping-pc-web
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+spring:
+  freemarker:
+    suffix: .ftl
+    templateEncoding: UTF-8
+    templateLoaderPath: classpath:/templates/
+  application:
+    name: upp-shopping-pc-web
+  redis:
+    host: 192.168.121.181
+
+feign:
+  hystrix:
+    enabled: true
+
+info:
+  app.name: @project.artifactId@
+  company.name: www.shopping.com
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
