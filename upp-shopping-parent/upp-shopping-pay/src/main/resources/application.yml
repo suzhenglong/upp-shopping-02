@@ -17,7 +17,7 @@ mybatis:
 
 logging:
   level:
-    com.csii.pay.mapper: debug
+    com.shopping.pay.mapper: debug
 
 
 spring:
